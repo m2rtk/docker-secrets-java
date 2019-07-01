@@ -56,13 +56,13 @@ public class DockerSecrets {
   public static Map<String, String> load(File secretsDir) throws DockerSecretLoadException {
 
     if (!secretsDir.exists()) {
-      throw new DockerSecretLoadException("Unable to find any secrets under [" + SECRETS_DIR + "]");
+      throw new DockerSecretLoadException("Unable to find any secrets under [" + secretsDir + "]");
     }
 
     File[] secretFiles = secretsDir.listFiles();
 
     if (secretFiles == null || secretFiles.length == 0) {
-      throw new DockerSecretLoadException("Unable to find any secrets under [" + SECRETS_DIR + "]");
+      throw new DockerSecretLoadException("Unable to find any secrets under [" + secretsDir + "]");
     }
 
     Map<String, String> secrets = new HashMap<>();
